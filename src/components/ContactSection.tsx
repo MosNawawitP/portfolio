@@ -36,7 +36,7 @@ const contactItems = (props: ContactSectionProps) => [
         {
           icon: FaGithub,
           label: "GitHub",
-          value: props.github.replace("https://github.com/", ""),
+          value: props.github.replace("https://github.com/MosNawawitP", ""),
           href: props.github,
           external: true,
         },
@@ -47,7 +47,7 @@ const contactItems = (props: ContactSectionProps) => [
         {
           icon: FaLinkedin,
           label: "LinkedIn",
-          value: props.linkedin.replace("https://linkedin.com/in/", ""),
+          value: props.linkedin.replace("https://linkedin.com/in/nawawit", ""),
           href: props.linkedin,
           external: true,
         },
