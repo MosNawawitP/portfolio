@@ -76,7 +76,7 @@ export function Navbar({
           className="flex items-center gap-2 text-xl font-bold font-mono group"
         >
           <Terminal className="w-5 h-5 text-primary group-hover:drop-shadow-[0_0_8px_oklch(0.75_0.15_180)] transition-all" />
-          <span className="text-gradient">{firstName}</span>
+          <span className="text-gradient font-fira">{firstName}</span>
           <span className="text-muted-foreground">.portfolio</span>
         </a>
 
