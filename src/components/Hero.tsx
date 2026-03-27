@@ -51,7 +51,7 @@ export function Hero({
               <div className="space-y-1 mb-3">
                 <p className="text-base font-mono text-primary tracking-wider uppercase">Hello, I&apos;m</p>
               </div>
-              <h1 className="text-5xl md:text-7xl font-bold mb-4 tracking-tight">
+              <h1 className="text-5xl md:text-7xl font-bold mb-4 tracking-tight font-fira">
                 <span className="text-gradient">{name}</span>
               </h1>
               
