@@ -31,41 +31,47 @@ export function AboutEducation({ personalInfo }: AboutEducationProps) {
         
         <AnimateOnScroll animation="fade-up" delay={200}>
         <Card className="bg-card/60 backdrop-blur-sm border-border/50 hover:border-primary/30 transition-all duration-300">
-          <CardContent className="pt-6">
-            <p className="text-muted-foreground leading-relaxed mb-6">
+          <CardContent className="p-8 md:p-10">
+            <p className="text-foreground text-lg md:text-xl leading-relaxed mb-10">
               {personalInfo.description}
             </p>
 
-            <div className="grid sm:grid-cols-3 gap-4">
-              <div className="flex items-center gap-3 group">
-                <div className="p-2 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
-                  <Mail className="w-4 h-4 text-primary" />
-                </div>
-                <div>
-                  <span className="text-xs text-muted-foreground uppercase tracking-wider">Email</span>
-                  <p className="font-medium text-foreground text-sm">{personalInfo.email}</p>
-                </div>
-              </div>
+            <div className="grid sm:grid-cols-3 gap-5">
+              <Card className="bg-background/50 border-border/40 hover:border-primary/30 transition-all duration-300">
+                <CardContent className="p-5 flex items-center gap-4">
+                  <div className="p-3 rounded-xl bg-primary/10">
+                    <Mail className="w-5 h-5 text-primary" />
+                  </div>
+                  <div className="min-w-0">
+                    <span className="text-xs text-muted-foreground uppercase tracking-widest font-medium">Email</span>
+                    <p className="font-medium text-foreground text-sm truncate">{personalInfo.email}</p>
+                  </div>
+                </CardContent>
+              </Card>
               
-              <div className="flex items-center gap-3 group">
-                <div className="p-2 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
-                  <Phone className="w-4 h-4 text-primary" />
-                </div>
-                <div>
-                  <span className="text-xs text-muted-foreground uppercase tracking-wider">Phone</span>
-                  <p className="font-medium text-foreground text-sm">{personalInfo.phone}</p>
-                </div>
-              </div>
+              <Card className="bg-background/50 border-border/40 hover:border-primary/30 transition-all duration-300">
+                <CardContent className="p-5 flex items-center gap-4">
+                  <div className="p-3 rounded-xl bg-primary/10">
+                    <Phone className="w-5 h-5 text-primary" />
+                  </div>
+                  <div>
+                    <span className="text-xs text-muted-foreground uppercase tracking-widest font-medium">Phone</span>
+                    <p className="font-medium text-foreground text-sm">{personalInfo.phone}</p>
+                  </div>
+                </CardContent>
+              </Card>
               
-              <div className="flex items-center gap-3 group">
-                <div className="p-2 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
-                  <MapPin className="w-4 h-4 text-primary" />
-                </div>
-                <div>
-                  <span className="text-xs text-muted-foreground uppercase tracking-wider">Location</span>
-                  <p className="font-medium text-foreground text-sm">{personalInfo.location}</p>
-                </div>
-              </div>
+              <Card className="bg-background/50 border-border/40 hover:border-primary/30 transition-all duration-300">
+                <CardContent className="p-5 flex items-center gap-4">
+                  <div className="p-3 rounded-xl bg-primary/10">
+                    <MapPin className="w-5 h-5 text-primary" />
+                  </div>
+                  <div>
+                    <span className="text-xs text-muted-foreground uppercase tracking-widest font-medium">Location</span>
+                    <p className="font-medium text-foreground text-sm">{personalInfo.location}</p>
+                  </div>
+                </CardContent>
+              </Card>
             </div>
           </CardContent>
         </Card>
