@@ -30,7 +30,7 @@ export function LoadingScreen({ name, title }: LoadingScreenProps) {
       )}
     >
       <div className="text-center">
-        <h1 className="text-4xl md:text-6xl font-bold text-foreground animate-[fadeSlideUp_0.8s_ease-out_both]">
+        <h1 className="text-4xl md:text-6xl font-bold text-foreground font-fira animate-[fadeSlideUp_0.8s_ease-out_both]">
           {name}
         </h1>
         <p className="mt-3 text-lg md:text-xl text-primary font-mono tracking-wider animate-[fadeSlideUp_0.8s_ease-out_0.3s_both]">
