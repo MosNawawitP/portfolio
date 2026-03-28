@@ -132,7 +132,7 @@ export function Hero({
           {/* Right side - Avatar with floating chips */}
           <div className="flex-shrink-0 order-1 md:order-2">
             <AnimateOnScroll animation="zoom-in" duration={800}>
-              <div className="relative w-64 h-64 md:w-80 md:h-80">
+                <div className="relative w-72 h-72 md:w-96 md:h-96">
                 {/* Decorative ring */}
                 <div className="absolute inset-0 rounded-full border-2 border-dashed border-primary/20 animate-[spin_30s_linear_infinite]" />
                 <div className="absolute inset-3 rounded-full border border-primary/10" />
