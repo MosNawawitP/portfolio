@@ -42,7 +42,7 @@ export function WorkExperience({ experiences }: WorkExperienceProps) {
 
         <div className="relative pl-4 md:pl-0">
           {/* Vertical timeline line */}
-          <div className="absolute left-[39px] md:left-12 top-4 bottom-4 w-px bg-border hidden md:block" />
+          <div className="absolute left-[23px] md:left-[23px] top-0 bottom-0 w-px bg-border hidden md:block" />
           
           <div className="space-y-8">
             {experiences.map((exp, index) => {
@@ -59,13 +59,20 @@ export function WorkExperience({ experiences }: WorkExperienceProps) {
               return (
                 <div key={exp.id} className="relative flex gap-6 md:gap-10">
                   {/* Timeline Icon */}
-                  <div className="hidden md:flex flex-col items-center z-10 mt-4">
+                  <div className="hidden md:flex flex-col items-center z-10 pt-6">
                     <div className={cn(
-                      "w-12 h-12 rounded-full border-2 flex items-center justify-center bg-card transition-colors duration-300",
-                      isExpanded ? "border-primary text-primary shadow-[0_0_15px_rgba(var(--primary),0.3)]" : "border-border text-muted-foreground"
+                      "w-12 h-12 rounded-full border-2 flex items-center justify-center transition-all duration-300",
+                      isExpanded 
+                        ? "border-primary bg-primary text-primary-foreground shadow-lg shadow-primary/30" 
+                        : "border-border bg-card text-muted-foreground"
                     )}>
                       <Building2 className="w-5 h-5" />
                     </div>
+                    {/* Active line segment */}
+                    <div className={cn(
+                      "w-px flex-1 transition-colors duration-300 -mb-8",
+                      isExpanded ? "bg-primary" : "bg-transparent"
+                    )} />
                   </div>
 
                   {/* Card Content */}
@@ -115,7 +122,12 @@ export function WorkExperience({ experiences }: WorkExperienceProps) {
 
                           <div className="flex flex-wrap gap-2">
                             {exp.technologies.map((tech) => (
-                              <Badge key={tech} variant="outline" className="text-xs font-mono border-border/80 text-foreground/80 bg-background/50">
+                              <Badge key={tech} variant="outline" className={cn(
+                                "text-xs font-mono px-3 py-1 transition-colors duration-300",
+                                isExpanded 
+                                  ? "border-primary/30 bg-primary/5 text-primary" 
+                                  : "border-border/80 text-muted-foreground bg-muted/30"
+                              )}>
                                 {tech}
                               </Badge>
                             ))}
