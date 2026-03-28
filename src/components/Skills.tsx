@@ -29,12 +29,6 @@ export function Skills({ skills }: SkillsProps) {
         </AnimateOnScroll>
         
         {(() => {
-          const cols = { base: 3, sm: 4, md: 6 };
-          const maxCols = cols.md;
-          const fullRows = Math.floor(skills.length / maxCols) * maxCols;
-          const gridItems = skills.slice(0, fullRows);
-          const remainingItems = skills.slice(fullRows);
-
           const renderSkill = (skill: Skill, index: number) => {
             const isDarkIcon = ['#000000', '#111111', '#1a1a1a', '#231F20', '#181717'].includes(skill.color);
             return (
@@ -77,20 +71,13 @@ export function Skills({ skills }: SkillsProps) {
           };
 
           return (
-            <>
-              <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-4">
-                {gridItems.map((skill, index) => renderSkill(skill, index))}
-              </div>
-              {remainingItems.length > 0 && (
-                <div className="flex justify-center gap-4 mt-4">
-                  {remainingItems.map((skill, index) => (
-                    <div key={skill.name} className="w-[calc(33.333%-12px)] sm:w-[calc(25%-12px)] md:w-[calc(16.666%-14px)]">
-                      {renderSkill(skill, fullRows + index)}
-                    </div>
-                  ))}
+            <div className="flex flex-wrap justify-center gap-4">
+              {skills.map((skill, index) => (
+                <div key={skill.name} className="w-[calc(33.333%-11px)] sm:w-[calc(25%-12px)] md:w-[calc(16.666%-14px)]">
+                  {renderSkill(skill, index)}
                 </div>
-              )}
-            </>
+              ))}
+            </div>
           );
         })()}
       </div>
