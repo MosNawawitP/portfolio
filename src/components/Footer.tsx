@@ -67,7 +67,7 @@ export function Footer({ name, email, github, linkedin }: FooterProps) {
             Made with <Heart className="w-3 h-3 text-red-400 fill-red-400" /> using Next.js & shadcn/ui
           </p>
           <p className="text-muted-foreground/50 text-sm mt-2 font-mono">
-            © {currentYear} {name}
+            © {currentYear} {name}. All rights reserved.
           </p>
         </div>
       </div>

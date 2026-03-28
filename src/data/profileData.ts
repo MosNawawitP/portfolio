@@ -36,23 +36,26 @@ export const education = [
 ];
 
 export const skills = [
-  { name: 'JavaScript', icon: 'devicon-javascript-plain', color: '#F7DF1E' },
-  { name: 'TypeScript', icon: 'devicon-typescript-plain', color: '#3178C6' },
-  { name: 'PHP', icon: 'devicon-php-plain', color: '#777BB4' },
+  { name: 'JavaScript', icon: 'devicon-javascript-plain', color: '#F7DF1E', expert: true },
+  { name: 'TypeScript', icon: 'devicon-typescript-plain', color: '#3178C6', expert: true },
+  { name: 'PHP', icon: 'devicon-php-plain', color: '#777BB4', expert: true },
   { name: 'Go', icon: 'devicon-go-original-wordmark', color: '#00ADD8' },
-  { name: 'Laravel', icon: 'devicon-laravel-original', color: '#FF2D20' },
-  { name: 'NestJS', icon: 'devicon-nestjs-original', color: '#E0234E' },
+  { name: 'Laravel', icon: 'devicon-laravel-original', color: '#FF2D20', expert: true },
+  { name: 'NestJS', icon: 'devicon-nestjs-original', color: '#E0234E', expert: true },
   { name: 'Vue.js', icon: 'devicon-vuejs-plain', color: '#4FC08D' },
   { name: 'Nuxt.js', icon: 'devicon-nuxtjs-plain', color: '#00DC82' },
   { name: 'React.js', icon: 'devicon-react-original', color: '#61DAFB' },
   { name: 'Next.js', icon: 'devicon-nextjs-plain', color: '#000000' },
-  { name: 'Express.js', icon: 'devicon-express-original', color: '#000000' },
-  { name: 'MySQL', icon: 'devicon-mysql-plain', color: '#4479A1' },
-  { name: 'PostgreSQL', icon: 'devicon-postgresql-plain', color: '#336791' },
+  { name: 'Express.js', icon: 'devicon-express-original', color: '#000000', expert: true },
+  { name: 'MySQL', icon: 'devicon-mysql-plain', color: '#4479A1', expert: true },
+  { name: 'PostgreSQL', icon: 'devicon-postgresql-plain', color: '#336791', expert: true },
   { name: 'MongoDB', icon: 'devicon-mongodb-plain', color: '#47A248' },
   { name: 'Redis', icon: 'devicon-redis-plain', color: '#DC382D' },
   { name: 'Docker', icon: 'devicon-docker-plain', color: '#2496ED' },
-  { name: 'Kafka', icon: 'devicon-apachekafka-original', color: '#231F20' }
+  { name: 'Kafka', icon: 'devicon-apachekafka-original', color: '#231F20' },
+  { name: 'Jenkins', icon: '/images/skills/jenkins.svg', color: '' },
+  { name: 'GitHub', icon: 'devicon-github-original', color: '#181717' },
+  { name: 'GitLab', icon: 'devicon-gitlab-plain', color: '#FC6D26', expert: true },
 ];
 
 export const workExperiences = [
