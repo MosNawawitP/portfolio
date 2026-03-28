@@ -13,6 +13,7 @@ interface EducationItem {
   degree: string;
   institution: string;
   year: string;
+  gpax?: string;
   relevantCoursework?: string;
   seniorProject?: SeniorProject;
 }
@@ -51,6 +52,11 @@ export function Education({ education }: EducationProps) {
                     <Calendar className="w-3.5 h-3.5" />
                     {edu.year}
                   </div>
+                  {edu.gpax && (
+                    <div className="mt-2 text-sm font-medium text-muted-foreground">
+                      GPAX: <span className="text-foreground font-semibold">{edu.gpax}</span>
+                    </div>
+                  )}
                 </div>
 
                 {/* Right - Degree Details */}
