@@ -33,6 +33,13 @@ export function Navbar({
       setIsScrolled(window.scrollY > 20);
 
       const sections = navItems.map((item) => item.href.replace("#", ""));
+
+      // If scrolled to the bottom, activate the last section
+      if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 50) {
+        setActiveSection(sections[sections.length - 1]);
+        return;
+      }
+
       for (let i = sections.length - 1; i >= 0; i--) {
         const el = document.getElementById(sections[i]);
         if (el) {
@@ -66,7 +73,7 @@ export function Navbar({
           : "bg-transparent"
       )}
     >
-      <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <nav className="max-w-7xl mx-auto px-8 h-20 flex items-center justify-between">
         <a
           href="#hero"
           onClick={(e) => {
@@ -81,7 +88,7 @@ export function Navbar({
         </a>
 
         {/* Desktop nav */}
-        <ul className="hidden md:flex items-center gap-1">
+        <ul className="hidden md:flex items-center gap-2">
           {navItems.map((item) => (
             <li key={item.href}>
               <a
