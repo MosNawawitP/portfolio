@@ -94,37 +94,48 @@ export function Hero({
                   <Mail className="w-4 h-4" />
                   Contact Me
                 </a>
-              </div>
-              <div className="flex items-center justify-center md:justify-start gap-3 pt-4">
+
                 {github && (
                   <a
                     href={github}
                     target="_blank"
                     rel="noopener noreferrer"
                     className={cn(
-                      "inline-flex items-center justify-center gap-2 rounded-xl px-7 py-3 text-base font-medium transition-colors duration-200",
-                      "border border-border bg-card/80 text-foreground hover:border-primary/50 hover:text-primary hover:bg-card"
+                      "inline-flex items-center justify-center w-12 h-12 rounded-xl transition-all duration-200",
+                      "border border-border bg-card/80 text-muted-foreground hover:border-primary/50 hover:text-primary hover:bg-card hover:scale-105"
                     )}
                   >
-                    <FaGithub className="w-4 h-4" />
-                    GitHub
+                    <FaGithub className="w-5 h-5" />
                   </a>
                 )}
-                
+
                 {linkedin && (
                   <a
                     href={linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
                     className={cn(
-                      "inline-flex items-center justify-center gap-2 rounded-xl px-7 py-3 text-base font-medium transition-colors duration-200",
-                      "border border-border bg-card/80 text-foreground hover:border-primary/50 hover:text-primary hover:bg-card"
+                      "inline-flex items-center justify-center w-12 h-12 rounded-xl transition-all duration-200",
+                      "border border-border bg-card/80 text-muted-foreground hover:border-primary/50 hover:text-primary hover:bg-card hover:scale-105"
                     )}
                   >
-                    <FaLinkedin className="w-4 h-4" />
-                    LinkedIn
+                    <FaLinkedin className="w-5 h-5" />
                   </a>
                 )}
+              </div>
+
+              {/* Stats */}
+              <div className="flex items-center justify-center md:justify-start gap-6 md:gap-8 pt-10">
+                {[
+                  { value: "6+", label: "Years Experience" },
+                  { value: "10+", label: "Projects Delivered" },
+                  { value: "20+", label: "Technologies" },
+                ].map((stat) => (
+                  <div key={stat.label} className="text-center md:text-left">
+                    <p className="text-3xl md:text-4xl font-bold text-gradient font-fira">{stat.value}</p>
+                    <p className="text-xs md:text-sm text-muted-foreground font-medium mt-1 tracking-wide">{stat.label}</p>
+                  </div>
+                ))}
               </div>
             </AnimateOnScroll>
           </div>
@@ -159,7 +170,7 @@ export function Hero({
                     key={chip.label}
                     className={cn(
                       "absolute z-20 flex items-center gap-1.5 px-3 py-1.5 rounded-full",
-                      "bg-card/90 backdrop-blur-sm border border-border/60 shadow-lg",
+                      "bg-card/90 backdrop-blur-sm border border-primary/30 shadow-lg dark:shadow-primary/10",
                       "text-xs font-medium text-foreground",
                       "animate-[float_3s_ease-in-out_infinite]",
                       chip.position
