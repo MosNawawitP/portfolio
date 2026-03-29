@@ -67,13 +67,13 @@ export function Navbar({
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-500 px-4",
         isScrolled
           ? "bg-background/70 backdrop-blur-xl border-b border-border/50"
           : "bg-transparent"
       )}
     >
-      <nav className="max-w-7xl mx-auto px-8 h-20 flex items-center justify-between">
+      <nav className="max-w-7xl mx-auto w-full h-20 flex items-center justify-between">
         <a
           href="#hero"
           onClick={(e) => {
