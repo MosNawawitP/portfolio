@@ -67,28 +67,28 @@ export function Navbar({
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-500 px-4",
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-500 px-4 sm:px-6 lg:px-12 xl:px-16",
         isScrolled
           ? "bg-background/70 backdrop-blur-xl border-b border-border/50"
           : "bg-transparent"
       )}
     >
-      <nav className="max-w-7xl mx-auto w-full h-20 flex items-center justify-between">
+<nav className="max-w-7xl mx-auto w-full h-14 sm:h-20 flex items-center justify-between">
         <a
           href="#hero"
           onClick={(e) => {
             e.preventDefault();
             handleClick("#hero");
           }}
-          className="flex items-center gap-2 text-xl font-bold font-mono group"
+          className="flex items-center gap-1.5 sm:gap-2 text-base sm:text-xl font-bold font-mono group"
         >
-          <Terminal className="w-5 h-5 text-primary group-hover:drop-shadow-[0_0_8px_oklch(0.75_0.15_180)] transition-all" />
+          <Terminal className="w-4 h-4 sm:w-5 sm:h-5 text-primary group-hover:drop-shadow-[0_0_8px_oklch(0.75_0.15_180)] transition-all" />
           <span className="text-gradient font-fira">{firstName}</span>
           <span className="text-muted-foreground">.portfolio</span>
         </a>
 
         {/* Desktop nav */}
-        <ul className="hidden md:flex items-center gap-2">
+        <ul className="hidden lg:flex items-center gap-1 lg:gap-2">
           {navItems.map((item) => (
             <li key={item.href}>
               <a
@@ -98,7 +98,7 @@ export function Navbar({
                   handleClick(item.href);
                 }}
                 className={cn(
-                  "relative px-3 py-2 rounded-lg text-base font-medium transition-all duration-300",
+                  "relative px-2 lg:px-3 py-2 rounded-lg text-sm lg:text-base font-medium transition-all duration-300",
                   activeSection === item.href.replace("#", "")
                     ? "text-primary"
                     : "text-muted-foreground hover:text-foreground"
@@ -124,20 +124,43 @@ export function Navbar({
           {/* Mobile toggle */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden p-2 rounded-lg hover:bg-accent transition-colors"
+            className="lg:hidden relative p-2 rounded-lg hover:bg-accent transition-colors w-9 h-9 flex items-center justify-center"
             aria-label="Toggle menu"
           >
-            {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            <Menu
+              className={cn(
+                "w-5 h-5 absolute transition-all duration-300",
+                mobileOpen ? "opacity-0 rotate-90 scale-50" : "opacity-100 rotate-0 scale-100"
+              )}
+            />
+            <X
+              className={cn(
+                "w-5 h-5 absolute transition-all duration-300",
+                mobileOpen ? "opacity-100 rotate-0 scale-100" : "opacity-0 -rotate-90 scale-50"
+              )}
+            />
           </button>
         </div>
       </nav>
 
       {/* Mobile menu */}
-      {mobileOpen && (
-        <div className="md:hidden bg-background/95 backdrop-blur-xl border-b border-border">
+      <div
+        className={cn(
+          "lg:hidden overflow-hidden transition-all duration-300 ease-in-out",
+          mobileOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
+        )}
+      >
+        <div className="bg-background/95 backdrop-blur-xl border-b border-border">
           <ul className="px-4 py-3 space-y-1">
-            {navItems.map((item) => (
-              <li key={item.href}>
+            {navItems.map((item, index) => (
+              <li
+                key={item.href}
+                className={cn(
+                  "transition-all duration-300",
+                  mobileOpen ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-4"
+                )}
+                style={{ transitionDelay: mobileOpen ? `${index * 40}ms` : "0ms" }}
+              >
                 <a
                   href={item.href}
                   onClick={(e) => {
@@ -157,7 +180,7 @@ export function Navbar({
             ))}
           </ul>
         </div>
-      )}
+      </div>
     </header>
   );
 }
