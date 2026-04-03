@@ -73,7 +73,7 @@ export function Hero({
               <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 w-full">
                 <div className="flex items-center gap-2 sm:gap-3">
                   <a
-                    href="/resume-file/Nawawit Pilanthanayothin - Resume.pdf"
+                    href="/resume-file/Nawawit_ Pilanthanayothin_Full-Stack_Developer.pdf"
                     download
                     className={cn(
                       "inline-flex items-center justify-center gap-2 rounded-xl px-5 py-2.5 sm:px-7 sm:py-3 text-sm sm:text-base font-medium transition-all duration-300",
