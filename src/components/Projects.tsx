@@ -11,7 +11,6 @@ interface Project {
   title: string;
   description: string;
   technologies: string[];
-  image?: string;
   liveUrl?: string;
   githubUrl?: string;
 }
@@ -38,74 +37,74 @@ export function Projects({ projects }: ProjectsProps) {
           {projects.map((project, index) => (
             <AnimateOnScroll key={project.id} animation="fade-up" delay={index * 120}>
             <div
-              className="group rounded-2xl border border-border/50 bg-card/60 backdrop-blur-sm overflow-hidden hover:border-primary/30 transition-all duration-300 hover:glow-primary flex flex-col h-full"
+              className="group rounded-2xl border border-border/50 bg-card/60 backdrop-blur-sm overflow-hidden hover:border-primary/30 transition-all duration-300 hover:glow-primary flex flex-col h-full relative"
             >
-              {project.image ? (
-                <div className="aspect-video w-full overflow-hidden relative">
-                  {project.image.endsWith('.svg') ? (
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-full object-contain bg-muted/50 group-hover:scale-105 transition-transform duration-500"
-                    />
-                  ) : (
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                  )}
-                  <div className="absolute inset-0 bg-gradient-to-t from-card/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                </div>
-              ) : (
-                <div className="aspect-video w-full bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center">
-                  <Folder className="w-14 h-14 text-primary/30 group-hover:text-primary/50 transition-colors" />
-                </div>
-              )}
-              
+              {/* Decorative gradient accent bar */}
+              <div className="h-1 w-full bg-gradient-to-r from-primary/80 via-primary/40 to-transparent" />
+
+              {/* Decorative background pattern */}
+              <div className="absolute top-0 right-0 w-32 h-32 opacity-[0.03] group-hover:opacity-[0.06] transition-opacity duration-500 pointer-events-none">
+                <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="80" cy="20" r="60" stroke="currentColor" strokeWidth="0.5" className="text-primary" />
+                  <circle cx="80" cy="20" r="40" stroke="currentColor" strokeWidth="0.5" className="text-primary" />
+                  <circle cx="80" cy="20" r="20" stroke="currentColor" strokeWidth="0.5" className="text-primary" />
+                </svg>
+              </div>
+
               <div className="p-5 flex flex-col flex-grow">
-                <h3 className="font-semibold text-lg text-foreground mb-1.5">{project.title}</h3>
-                <p className="text-muted-foreground text-base line-clamp-2 mb-4 leading-relaxed">
+                {/* Header: number + icon + links */}
+                <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
+                      <Folder className="w-5 h-5 text-primary" />
+                    </div>
+                    <span className="font-mono text-sm text-muted-foreground/60">
+                      {String(index + 1).padStart(2, '0')}
+                    </span>
+                  </div>
+                  <div className="flex gap-2">
+                    {project.liveUrl && (
+                      <a
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-8 h-8 rounded-lg border border-border/60 bg-card/80 flex items-center justify-center hover:border-primary/40 hover:text-primary transition-all duration-200 text-muted-foreground"
+                      >
+                        <ExternalLink className="w-3.5 h-3.5" />
+                      </a>
+                    )}
+                    {project.githubUrl && (
+                      <a
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-8 h-8 rounded-lg border border-border/60 bg-card/80 flex items-center justify-center hover:border-primary/40 hover:text-primary transition-all duration-200 text-muted-foreground"
+                      >
+                        <FaGithub className="w-3.5 h-3.5" />
+                      </a>
+                    )}
+                  </div>
+                </div>
+
+                {/* Title */}
+                <h3 className="font-semibold text-lg text-foreground mb-2 group-hover:text-primary transition-colors duration-300 leading-snug">
+                  {project.title}
+                </h3>
+
+                {/* Description */}
+                <p className="text-muted-foreground text-sm leading-relaxed mb-5 flex-grow">
                   {project.description}
                 </p>
                 
-                <div className="flex flex-wrap gap-1.5 mb-5 flex-grow">
-                  {project.technologies.map((tech) => (
-                    <Badge key={tech} variant="outline" className="text-xs font-mono border-border/60 text-muted-foreground">
-                      {tech}
-                    </Badge>
-                  ))}
-                </div>
-              
-                <div className="flex gap-2 pt-0">
-                  {project.liveUrl && (
-                    <a
-                      href={project.liveUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={cn(
-                      "inline-flex items-center justify-center gap-1.5 rounded-lg px-4 py-2 text-sm font-medium transition-all duration-200",
-                        "bg-primary text-primary-foreground hover:bg-primary/80 glow-primary"
-                      )}
-                    >
-                      <ExternalLink className="w-3 h-3" />
-                      Live Demo
-                    </a>
-                  )}
-                  {project.githubUrl && (
-                    <a
-                      href={project.githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={cn(
-                      "inline-flex items-center justify-center gap-1.5 rounded-lg px-4 py-2 text-sm font-medium transition-all duration-200",
-                        "border border-border/60 bg-card/80 hover:border-primary/40 hover:text-primary"
-                      )}
-                    >
-                      <FaGithub className="w-3 h-3" />
-                      Code
-                    </a>
-                  )}
+                {/* Tech stack chips */}
+                <div className="pt-4 border-t border-border/30">
+                  <div className="flex flex-wrap gap-1.5">
+                    {project.technologies.map((tech) => (
+                      <span key={tech} className="text-xs font-mono px-2.5 py-1 rounded-full border border-border/80 text-muted-foreground bg-muted/30 hover:border-primary/30 hover:bg-primary/5 hover:text-primary transition-colors">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
